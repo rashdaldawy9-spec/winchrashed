@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="14" fill="#0f172a"/>
+  <rect x="2" y="2" width="60" height="60" rx="12" stroke="#f59e0b" stroke-width="3"/>
+  <!-- Tow truck flatbed icon -->
+  <path d="M12 40 L12 28 L24 28 L30 33 L34 33 L34 40 Z" fill="#f8fafc"/>
+  <polygon points="30,36 52,28 53,31 32,39" fill="#f59e0b"/>
+  <circle cx="18" cy="42" r="5" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
+  <circle cx="44" cy="42" r="5" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
+  <polygon points="18,25 22,25 21,28 17,28" fill="#fbbf24"/>
+  <!-- Hazard stripe small -->
+  <line x1="8" y1="52" x2="16" y2="52" stroke="#f59e0b" stroke-width="3"/>
+  <line x1="24" y1="52" x2="32" y2="52" stroke="#f59e0b" stroke-width="3"/>
+  <line x1="40" y1="52" x2="48" y2="52" stroke="#f59e0b" stroke-width="3"/>
+  <line x1="56" y1="52" x2="60" y2="52" stroke="#f59e0b" stroke-width="3"/>
+</svg>

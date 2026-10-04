@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Disallow internal thank you confirmation page from index bloat
+Disallow: /thank-you.html
+
+# Sitemap reference
+Sitemap: https://winch-rashed.com/sitemap.xml

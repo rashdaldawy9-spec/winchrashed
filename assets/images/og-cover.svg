@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <defs>
+    <linearGradient id="ogBg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#05080f"/>
+    </linearGradient>
+    <linearGradient id="amberGold2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#ogBg2)"/>
+
+  <!-- Hazard stripe border at top -->
+  <g opacity="0.9">
+    <rect x="0" y="0" width="1200" height="12" fill="#f59e0b"/>
+    <line x1="0" y1="6" x2="1200" y2="6" stroke="#0f172a" stroke-width="4" stroke-dasharray="16 16"/>
+  </g>
+
+  <!-- Large emblem in center background -->
+  <g transform="translate(850, 160)" opacity="0.15">
+    <circle cx="150" cy="150" r="220" fill="none" stroke="#f59e0b" stroke-width="8"/>
+    <circle cx="150" cy="150" r="160" fill="none" stroke="#fbbf24" stroke-width="4" stroke-dasharray="20 15"/>
+  </g>
+
+  <!-- Brand Content -->
+  <g transform="translate(100, 130)">
+    <!-- Badge -->
+    <rect x="0" y="0" width="460" height="42" rx="21" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <circle cx="24" cy="21" r="7" fill="#22c55e"/>
+    <text x="44" y="27" font-family="'Cairo', sans-serif" font-weight="800" font-size="17" fill="#fbbf24">
+      تغطية فورية 24 ساعة: العاشر من رمضان وشرق القاهرة
+    </text>
+
+    <!-- Main Title -->
+    <text x="0" y="125" font-family="'Cairo', sans-serif" font-weight="900" font-size="74" fill="#ffffff">
+      ونش <tspan fill="url(#amberGold2)">راشد</tspan>
+    </text>
+
+    <!-- Subtitle -->
+    <text x="0" y="185" font-family="'Cairo', sans-serif" font-weight="700" font-size="30" fill="#cbd5e1">
+      أسرع ونش هيدروليك مجهز للملاكي والنقل والحوادث
+    </text>
+    
+    <!-- Exact Locations Mentioned -->
+    <text x="0" y="235" font-family="'Cairo', sans-serif" font-weight="700" font-size="22" fill="#fbbf24">
+      العاشر من رمضان • طريق السويس • طريق الإسماعيلية • الشروق
+    </text>
+    <text x="0" y="270" font-family="'Cairo', sans-serif" font-weight="600" font-size="20" fill="#94a3b8">
+      مدينتي • مدينة بدر • مدينة العبور • العاصمة الإدارية الجديدة
+    </text>
+
+    <!-- Call Badge -->
+    <g transform="translate(0, 305)">
+      <rect x="0" y="0" width="460" height="85" rx="14" fill="url(#amberGold2)"/>
+      <g transform="translate(30, 22)">
+        <path d="M7 2a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H7zm7 21a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" fill="#0f172a"/>
+      </g>
+      <text x="80" y="44" font-family="'Cairo', sans-serif" font-weight="900" font-size="22" fill="#0f172a">
+        اتصل الآن للطوارئ:
+      </text>
+      <text x="80" y="74" font-family="'Cairo', sans-serif" font-weight="900" font-size="34" fill="#0f172a" letter-spacing="1">
+        01273486236
+      </text>
+    </g>
+
+    <!-- WhatsApp Quick Note -->
+    <g transform="translate(500, 305)">
+      <rect x="0" y="0" width="340" height="85" rx="14" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+      <circle cx="45" cy="42" r="18" fill="#22c55e"/>
+      <path d="M45 32 C39.5 32 35 36.5 35 42 C35 44 35.6 45.8 36.6 47.3 L35.5 51.5 L39.8 50.4 C41.3 51.2 43.1 51.8 45 51.8 C50.5 51.8 55 47.3 55 42 C55 36.5 50.5 32 45 32 Z" fill="#ffffff"/>
+      <text x="80" y="52" font-family="'Cairo', sans-serif" font-weight="800" font-size="22" fill="#ffffff">
+        واتساب مباشر 24/7
+      </text>
+    </g>
+  </g>
+</svg>

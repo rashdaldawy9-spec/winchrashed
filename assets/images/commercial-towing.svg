@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" fill="none">
+  <defs>
+    <linearGradient id="bgDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0b0f17"/>
+    </linearGradient>
+    <linearGradient id="yellowGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+    <pattern id="gridPattern" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background with subtle road grid -->
+  <rect width="600" height="380" fill="url(#bgDark)"/>
+  <rect width="600" height="380" fill="url(#gridPattern)"/>
+
+  <!-- Road surface -->
+  <path d="M0 300 L600 300 L600 380 L0 380 Z" fill="#1e2633"/>
+  <line x1="0" y1="300" x2="600" y2="300" stroke="#f59e0b" stroke-width="3" stroke-dasharray="16 12"/>
+  
+  <!-- Tow Truck (Heavy duty) -->
+  <g transform="translate(40, 90)">
+    <!-- Flatbed chassis -->
+    <rect x="60" y="160" width="420" height="24" rx="4" fill="#334155"/>
+    <!-- Cabin -->
+    <path d="M60 160 L60 80 L140 80 L180 120 L180 160 Z" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <path d="M80 95 L135 95 L165 125 L80 125 Z" fill="#0f172a" stroke="#475569" stroke-width="1.5"/>
+    <!-- Amber strobe bar -->
+    <rect x="90" y="70" width="50" height="10" rx="3" fill="#fbbf24"/>
+    <circle cx="115" cy="75" r="14" fill="#fbbf24" opacity="0.3"/>
+    
+    <!-- Heavy Boom / Wheel Lift Crane structure for commercial vehicles -->
+    <polygon points="180,150 260,80 280,80 200,160" fill="#f59e0b"/>
+    <polygon points="260,80 340,60 350,66 280,84" fill="#fbbf24"/>
+    <line x1="345" y1="65" x2="345" y2="140" stroke="#94a3b8" stroke-width="4"/>
+    <circle cx="345" cy="140" r="8" fill="#f59e0b"/>
+
+    <!-- Towed Commercial Van / Half-truck (نصف نقل) -->
+    <g transform="translate(250, 45)">
+      <!-- Van Body tilted up -->
+      <path d="M80 110 L190 90 L210 120 L210 145 L80 145 Z" fill="#2d3748" stroke="#cbd5e1" stroke-width="2"/>
+      <path d="M150 97 L190 90 L205 115 L150 115 Z" fill="#1a202c"/>
+      <!-- Cargo Bed -->
+      <rect x="0" y="100" width="80" height="45" fill="#374151" stroke="#cbd5e1" stroke-width="2"/>
+      <!-- Van Back Wheel -->
+      <circle cx="40" cy="148" r="18" fill="#0f172a" stroke="#94a3b8" stroke-width="3"/>
+      <circle cx="40" cy="148" r="7" fill="#475569"/>
+      <!-- Van Front Wheel hooked in cradle -->
+      <circle cx="170" cy="145" r="18" fill="#0f172a" stroke="#f59e0b" stroke-width="3"/>
+      <circle cx="170" cy="145" r="7" fill="#475569"/>
+    </g>
+
+    <!-- Tow Truck Wheels -->
+    <circle cx="110" cy="184" r="26" fill="#0f172a" stroke="#f59e0b" stroke-width="4"/>
+    <circle cx="110" cy="184" r="10" fill="#334155"/>
+    <circle cx="420" cy="184" r="26" fill="#0f172a" stroke="#f59e0b" stroke-width="4"/>
+    <circle cx="420" cy="184" r="10" fill="#334155"/>
+    <circle cx="465" cy="184" r="26" fill="#0f172a" stroke="#f59e0b" stroke-width="4"/>
+    <circle cx="465" cy="184" r="10" fill="#334155"/>
+    
+    <!-- Safety Hazard Chevrons on bumper -->
+    <g transform="translate(60, 160)">
+      <polygon points="0,0 8,0 0,16" fill="#fbbf24"/>
+      <polygon points="12,0 20,0 12,16 4,16" fill="#fbbf24"/>
+      <polygon points="24,0 32,0 24,16 16,16" fill="#fbbf24"/>
+    </g>
+  </g>
+
+  <!-- Industrial text overlay badge -->
+  <rect x="30" y="24" width="230" height="38" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="145" y="48" font-family="'Cairo', system-ui, sans-serif" font-weight="800" font-size="16" fill="#f8fafc" text-anchor="middle">
+    سحب سيارات نقل ونصف نقل
+  </text>
+</svg>
