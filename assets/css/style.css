@@ -34,7 +34,7 @@
   /* Typography Colors (High Contrast on White) */
   --text-white: #ffffff;         /* Only on dark buttons/badges */
   --text-primary: #0f172a;       /* Deep Slate Navy (Primary Headings & Bold) */
-  --text-secondary: #334155;     /* Slate (Body Text & Descriptions) */
+  --text-secondary: #1e293b;     /* Slate (Body Text & Descriptions) */
   --text-muted: #64748b;         /* Muted Slate (Meta & Subtext) */
   --text-amber: #b45309;         /* High-contrast amber text */
 
@@ -183,8 +183,9 @@ h3 { font-size: clamp(1.25rem, 2.4vw, 1.6rem); }
 h4 { font-size: 1.15rem; }
 
 p {
-  color: var(--text-secondary);
-  line-height: 1.7;
+  color: #1e293b;
+  line-height: 1.8;
+  font-weight: 500;
 }
 
 .text-amber { color: var(--amber-400); }
@@ -610,7 +611,7 @@ p {
 
 .hero-description {
   font-size: 1.18rem;
-  color: #cbd5e1;
+  color: #1e293b;
   line-height: 1.8;
   max-width: 620px;
 }
@@ -637,7 +638,7 @@ p {
   align-items: center;
   gap: 10px;
   font-size: 0.92rem;
-  color: #94a3b8;
+  color: #475569;
 }
 .hero-whatsapp-subnote svg {
   color: var(--green-whatsapp);
@@ -918,7 +919,7 @@ p {
   align-items: center;
   gap: 10px;
   font-size: 0.88rem;
-  color: #cbd5e1;
+  color: #1e293b;
 }
 .service-features-list li svg {
   color: var(--amber-400);
@@ -1044,7 +1045,7 @@ p {
 
 .station-landmarks {
   font-size: 0.94rem;
-  color: #cbd5e1;
+  color: #1e293b;
   line-height: 1.7;
   margin: 0;
 }
@@ -1054,7 +1055,7 @@ p {
 
 .station-specs {
   font-size: 0.86rem;
-  color: #94a3b8;
+  color: #475569;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -1107,7 +1108,7 @@ p {
 }
 .location-share-callout p {
   font-size: 0.95rem;
-  color: #cbd5e1;
+  color: #1e293b;
   margin: 0;
   max-width: 680px;
 }
@@ -1234,7 +1235,7 @@ p {
 }
 .review-text {
   font-size: 0.95rem;
-  color: #cbd5e1;
+  color: #1e293b;
   line-height: 1.7;
 }
 .review-route-tag {
@@ -1308,7 +1309,7 @@ p {
   overflow: hidden;
   transition: max-height 0.35s ease, padding 0.35s ease;
   padding: 0 24px;
-  color: #cbd5e1;
+  color: #1e293b;
   font-size: 0.98rem;
   line-height: 1.7;
 }
@@ -1501,7 +1502,7 @@ p {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  color: #cbd5e1;
+  color: #1e293b;
   font-size: 0.92rem;
 }
 .safety-tips-box ul li {
@@ -1570,7 +1571,7 @@ p {
   margin-bottom: 16px;
   font-size: 1.02rem;
   line-height: 1.8;
-  color: #cbd5e1;
+  color: #1e293b;
 }
 .content-card-article ul {
   margin-bottom: 20px;
@@ -1581,7 +1582,7 @@ p {
 .content-card-article ul li {
   position: relative;
   padding-right: 22px;
-  color: #cbd5e1;
+  color: #1e293b;
 }
 .content-card-article ul li::before {
   content: "✔";
@@ -1713,7 +1714,7 @@ p {
   align-items: flex-start;
   gap: 12px;
   font-size: 0.95rem;
-  color: #cbd5e1;
+  color: #1e293b;
 }
 .footer-contact-item svg {
   color: var(--amber-400);
@@ -2050,7 +2051,7 @@ p {
   padding: 8px 12px;
   background: #f8fafc;
   border-radius: var(--radius-sm);
-  color: #cbd5e1;
+  color: #1e293b;
   font-size: 0.9rem;
   transition: all var(--transition-fast);
   text-decoration: none;
@@ -2107,7 +2108,7 @@ p {
 }
 .faq-answer {
   font-size: 0.96rem;
-  color: #cbd5e1;
+  color: #1e293b;
   line-height: 1.7;
   margin: 0;
   padding-right: 34px;
@@ -2166,7 +2167,7 @@ p {
 .seo-tag {
   display: inline-block;
   font-size: 0.82rem;
-  color: #94a3b8;
+  color: #475569;
   background: rgba(255, 255, 255, 0.06);
   padding: 4px 10px;
   border-radius: var(--radius-sm);
@@ -2194,9 +2195,10 @@ p {
   margin-bottom: 14px;
 }
 .seo-rich-box p {
-  color: #cbd5e1;
-  font-size: 1.02rem;
-  line-height: 1.85;
+  color: #1e293b;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  font-weight: 500;
   margin-bottom: 16px;
 }
 .seo-rich-box strong.kw-highlight {
