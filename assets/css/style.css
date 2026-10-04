@@ -1905,28 +1905,51 @@ p {
   font-size: 0.85rem;
 }
 
-/* Area Grid Cards for Local SEO Dominance */
+/* Area Grid Cards for Local SEO Dominance (Jannah Style with 390x220 Thumbnails) */
 .area-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
   margin-top: 24px;
 }
 .area-card {
   background: var(--bg-card);
   border: 1px solid var(--border-card);
   border-radius: var(--radius-md);
-  padding: 20px 18px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 12px;
-  transition: all var(--transition-fast);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 .area-card:hover {
   border-color: var(--amber-500);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+.area-card-img-wrap {
+  width: 100%;
+  aspect-ratio: 390 / 220;
+  overflow: hidden;
+  background: #0f172a;
+}
+.area-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.area-card:hover .area-card-img-wrap img {
+  transform: scale(1.04);
+}
+.area-card-body {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  justify-content: space-between;
 }
 .area-card-header {
   display: flex;
@@ -1948,6 +1971,7 @@ p {
   border: 1px solid rgba(34, 197, 94, 0.3);
   border-radius: var(--radius-pill);
   font-weight: 700;
+  white-space: nowrap;
 }
 .area-card-desc {
   font-size: 0.88rem;
@@ -1968,10 +1992,138 @@ p {
   font-size: 0.9rem;
   border-radius: var(--radius-sm);
   transition: all var(--transition-fast);
+  text-decoration: none;
 }
 .area-card-btn:hover {
   background: var(--amber-500);
   color: #000000;
+}
+
+/* ==========================================================================
+   JANNAH-STYLE 2-COLUMN MAGAZINE LAYOUT & SIDEBAR
+   ========================================================================== */
+.magazine-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (min-width: 992px) {
+  .magazine-container {
+    grid-template-columns: minmax(0, 1fr) 320px;
+  }
+}
+
+.main-column {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.sidebar-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (min-width: 992px) {
+  .sidebar-column.sticky-sidebar {
+    position: sticky;
+    top: 90px;
+  }
+}
+
+.sidebar-widget {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.sidebar-widget-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--amber-500);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sidebar-post-banner {
+  display: block;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.sidebar-post-banner:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.25);
+}
+
+.sidebar-post-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.sidebar-hotline-card {
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.15) 0%, rgba(15, 23, 42, 0.95) 100%);
+  border: 2px solid #ef4444;
+  border-radius: var(--radius-md);
+  padding: 20px;
+  text-align: center;
+}
+
+.sidebar-hotline-card .hotline-title {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.sidebar-hotline-card .phone-num {
+  font-size: 1.55rem;
+  font-weight: 900;
+  color: #ef4444;
+  display: block;
+  margin-bottom: 12px;
+  text-decoration: none;
+}
+
+.sidebar-areas-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar-areas-list li a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: var(--radius-sm);
+  color: #cbd5e1;
+  font-size: 0.9rem;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.sidebar-areas-list li a:hover {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--amber-400);
+  padding-right: 16px;
 }
 
 /* FAQ Accordion Section */
