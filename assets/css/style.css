@@ -481,27 +481,34 @@ p {
 /* Mobile Nav Toggle */
 .mobile-toggle {
   display: none;
-  background: transparent;
-  border: 1px solid var(--border-card);
-  color: var(--text-white);
-  padding: 10px;
+  background: #f8fafc;
+  border: 1.5px solid #cbd5e1;
+  color: #0f172a;
+  padding: 8px 12px;
   border-radius: var(--radius-sm);
   cursor: pointer;
   align-items: center;
   justify-content: center;
+  transition: all 0.2s ease;
+}
+.mobile-toggle:hover {
+  background: #f1f5f9;
+  border-color: var(--amber-500);
+  color: var(--amber-600);
 }
 .mobile-toggle svg {
   width: 24px;
   height: 24px;
+  stroke: #0f172a;
 }
 
 /* Mobile Nav Drawer */
 .mobile-drawer {
   display: none;
-  background: var(--bg-dark-800);
-  border-bottom: 2px solid var(--amber-500);
-  padding: 24px;
-  box-shadow: var(--shadow-lg);
+  background: #ffffff;
+  border-bottom: 3px solid var(--amber-500);
+  padding: 20px 24px;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.15);
 }
 .mobile-drawer.open {
   display: block;
@@ -509,13 +516,19 @@ p {
 .mobile-menu-links {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-bottom: 24px;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 .mobile-menu-links .nav-link {
   font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
   padding: 10px 0;
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom: 1px solid #f1f5f9;
+}
+.mobile-menu-links .nav-link:hover,
+.mobile-menu-links .nav-link.active {
+  color: var(--amber-600);
 }
 .mobile-drawer-cta {
   display: flex;
@@ -1812,20 +1825,24 @@ p {
    19. Winch Alamir Inspired SEO & High-Converting Components
    -------------------------------------------------------------------------- */
 
-/* Top Promo / Discount Strip */
+/* Top Promo / Discount Strip (Winch Alamir Style) */
 .promo-strip {
-  background: linear-gradient(90deg, #b91c1c 0%, #d97706 50%, #b91c1c 100%);
-  color: #ffffff;
-  padding: 8px 12px;
-  font-size: 0.92rem;
-  font-weight: 700;
+  background: #fffbeb;
+  border-bottom: 2px solid #f59e0b;
+  color: #92400e;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  font-weight: 800;
   text-align: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.12);
+  line-height: 1.6;
 }
 .promo-strip a {
-  color: #fff;
+  color: #b45309;
+  font-weight: 900;
   text-decoration: underline;
   margin-right: 6px;
+  font-size: 1.05rem;
 }
 
 /* Star Rating Box (KK Star Ratings Look for SERP Rich Results) */
@@ -1946,6 +1963,144 @@ p {
 .area-card-btn:hover {
   background: var(--amber-500);
   color: #000000;
+}
+
+/* ==========================================================================
+   WINCH ALAMIR ELITE MOBILE VISUAL SHOWCASE (1:1 High-Conversion Layout)
+   ========================================================================== */
+.mobile-alamir-showcase {
+  margin-top: 24px;
+  margin-bottom: 32px;
+}
+.alamir-featured-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+  border: 2px solid var(--amber-500);
+  margin-bottom: 14px;
+  background: #0f172a;
+  aspect-ratio: 16 / 9;
+  display: block;
+  text-decoration: none;
+}
+.alamir-featured-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  display: block;
+}
+.alamir-featured-card:hover img {
+  transform: scale(1.03);
+}
+.alamir-featured-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.94) 0%, rgba(15, 23, 42, 0.45) 55%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+}
+.alamir-badge-top {
+  align-self: flex-start;
+  background: #f59e0b;
+  color: #0f172a;
+  font-size: 0.82rem;
+  font-weight: 900;
+  padding: 5px 14px;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.alamir-featured-content {
+  color: #ffffff;
+}
+.alamir-featured-title {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: #ffffff !important;
+  margin: 0 0 6px 0;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+}
+.alamir-featured-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #fbbf24;
+  font-weight: 800;
+  font-size: 0.98rem;
+}
+
+/* 2-Column Mobile Grid */
+.alamir-grid-2col {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+@media (min-width: 769px) {
+  .alamir-grid-2col {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+}
+.alamir-card {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 1.5px solid rgba(217, 119, 6, 0.35);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+  aspect-ratio: 4 / 3;
+  display: block;
+  text-decoration: none;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.alamir-card:hover, .alamir-card:active {
+  transform: translateY(-3px);
+  border-color: #d97706;
+  box-shadow: 0 8px 24px rgba(217, 119, 6, 0.25);
+}
+.alamir-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  display: block;
+}
+.alamir-card:hover img {
+  transform: scale(1.05);
+}
+.alamir-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.25) 60%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+}
+.alamir-card-badge {
+  align-self: flex-start;
+  background: rgba(22, 163, 74, 0.92);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+.alamir-card-title {
+  color: #ffffff !important;
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1.35;
+  margin: 0;
+  text-align: center;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.9);
 }
 
 /* ==========================================================================
