@@ -39,22 +39,22 @@
   </g>
 
   <!-- Typography: Primary Arabic Brand Name -->
-  <text x="128" y="60" font-family="'Cairo', system-ui, sans-serif" font-weight="900" font-size="42" fill="#ffffff" letter-spacing="-0.5">
-    ونش <tspan fill="#f59e0b">راشد</tspan>
+  <text x="128" y="60" font-family="'Cairo', system-ui, sans-serif" font-weight="900" font-size="42" fill="#0f172a" letter-spacing="-0.5">
+    ونش <tspan fill="#d97706">راشد</tspan>
   </text>
   
   <!-- Sub-tagline -->
-  <text x="130" y="88" font-family="'Cairo', system-ui, sans-serif" font-weight="600" font-size="14" fill="#94a3b8" letter-spacing="0.5">
+  <text x="130" y="88" font-family="'Cairo', system-ui, sans-serif" font-weight="600" font-size="14" fill="#475569" letter-spacing="0.5">
     لإنقاذ وسحب السيارات • خدمة 24 ساعة
   </text>
   
   <!-- English Badge Subtext -->
-  <rect x="400" y="32" width="130" height="24" rx="4" fill="#1e293b" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
-  <text x="465" y="48" font-family="'Cairo', system-ui, sans-serif" font-weight="700" font-size="10.5" fill="#fbbf24" text-anchor="middle" letter-spacing="1.5">
+  <rect x="400" y="32" width="130" height="24" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="465" y="48" font-family="'Cairo', system-ui, sans-serif" font-weight="700" font-size="10.5" fill="#b45309" text-anchor="middle" letter-spacing="1.5">
     RASHED TOWING
   </text>
   
-  <text x="465" y="74" font-family="'Cairo', system-ui, sans-serif" font-weight="700" font-size="12" fill="#22c55e" text-anchor="middle">
+  <text x="465" y="74" font-family="'Cairo', system-ui, sans-serif" font-weight="700" font-size="12" fill="#16a34a" text-anchor="middle">
     ● 01273486236
   </text>
 </svg>

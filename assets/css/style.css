@@ -8,58 +8,58 @@
    1. CSS Custom Properties / Variables
    -------------------------------------------------------------------------- */
 :root {
-  /* Colors */
-  --bg-dark-900: #0a0d14;
-  --bg-dark-800: #101520;
-  --bg-dark-700: #171f2c;
-  --bg-dark-600: #202b3c;
-  --bg-card: rgba(23, 31, 44, 0.85);
-  --bg-card-hover: #1e2838;
-  --bg-glass: rgba(16, 21, 32, 0.88);
+  /* Clean, Bright, Uplifting Theme Palette (Winch Alamir / Modern Automotive Style) */
+  --bg-dark-900: #f8fafc;        /* Main Page Background (Soft Off-White) */
+  --bg-dark-800: #ffffff;        /* Primary Section / Container Surface */
+  --bg-dark-700: #f1f5f9;        /* Subtle Contrast Surface */
+  --bg-dark-600: #e2e8f0;        /* Subtle Divider / Section Alt */
+  --bg-card: #ffffff;            /* Clean White Card Surface */
+  --bg-card-hover: #f8fafc;
+  --bg-glass: rgba(255, 255, 255, 0.95); /* Frosted Header Glass */
 
-  /* Primary Industrial Accents */
-  --amber-500: #f59e0b;
-  --amber-400: #fbbf24;
-  --amber-600: #d97706;
-  --amber-glow: rgba(245, 158, 11, 0.28);
-  --amber-glow-strong: rgba(245, 158, 11, 0.45);
+  /* Primary Warning & Brand Accents */
+  --amber-500: #d97706;          /* Deep readable amber/gold */
+  --amber-400: #f59e0b;          /* Vibrant amber */
+  --amber-600: #b45309;          /* Deep bronze */
+  --amber-glow: rgba(217, 119, 6, 0.12);
+  --amber-glow-strong: rgba(217, 119, 6, 0.22);
 
   /* Functional Status Colors */
-  --green-whatsapp: #22c55e;
-  --green-whatsapp-hover: #16a34a;
-  --green-glow: rgba(34, 197, 94, 0.3);
-  --red-emergency: #ef4444;
-  --red-emergency-hover: #dc2626;
+  --green-whatsapp: #16a34a;
+  --green-whatsapp-hover: #15803d;
+  --green-glow: rgba(22, 163, 74, 0.2);
+  --red-emergency: #dc2626;
+  --red-emergency-hover: #b91c1c;
 
-  /* Typography Colors */
-  --text-white: #ffffff;
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
-  --text-amber: #fbbf24;
+  /* Typography Colors (High Contrast on White) */
+  --text-white: #ffffff;         /* Only on dark buttons/badges */
+  --text-primary: #0f172a;       /* Deep Slate Navy (Primary Headings & Bold) */
+  --text-secondary: #334155;     /* Slate (Body Text & Descriptions) */
+  --text-muted: #64748b;         /* Muted Slate (Meta & Subtext) */
+  --text-amber: #b45309;         /* High-contrast amber text */
 
   /* Borders & Dividers */
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-card: rgba(255, 255, 255, 0.12);
-  --border-amber: rgba(245, 158, 11, 0.35);
-  --border-amber-active: rgba(245, 158, 11, 0.8);
+  --border-subtle: #e2e8f0;      /* Clean crisp light border */
+  --border-card: #e2e8f0;        /* Card border */
+  --border-amber: rgba(217, 119, 6, 0.35);
+  --border-amber-active: #d97706;
 
   /* Spacing & Layout */
   --container-max: 1240px;
   --header-height: 82px;
   --mobile-bar-height: 74px;
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 18px;
-  --radius-xl: 24px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 26px;
   --radius-pill: 9999px;
 
-  /* Shadows */
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
-  --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.6);
-  --shadow-amber: 0 8px 30px rgba(245, 158, 11, 0.25);
-  --shadow-whatsapp: 0 8px 30px rgba(34, 197, 94, 0.25);
+  /* Shadows (Soft & Modern Elevation) */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 12px 30px rgba(15, 23, 42, 0.12);
+  --shadow-amber: 0 8px 24px rgba(217, 119, 6, 0.18);
+  --shadow-whatsapp: 0 8px 24px rgba(22, 163, 74, 0.18);
 
   /* Transitions */
   --transition-fast: 0.18s ease-in-out;
@@ -96,8 +96,8 @@ body {
   overflow-x: hidden;
   background-color: var(--bg-dark-900);
   background-image: 
-    radial-gradient(ellipse at 50% 0%, rgba(245, 158, 11, 0.08) 0%, transparent 60%),
-    radial-gradient(circle at 100% 20%, rgba(30, 41, 59, 0.4) 0%, transparent 40%);
+    radial-gradient(ellipse at 50% 0%, rgba(217, 119, 6, 0.04) 0%, transparent 60%),
+    radial-gradient(circle at 100% 20%, rgba(226, 232, 240, 0.6) 0%, transparent 40%);
   background-attachment: fixed;
 }
 
@@ -173,7 +173,7 @@ ul, ol {
 h1, h2, h3, h4, h5, h6 {
   font-weight: 800;
   line-height: 1.25;
-  color: var(--text-white);
+  color: var(--text-primary);
   letter-spacing: -0.02em;
 }
 
@@ -401,7 +401,7 @@ p {
   transition: all var(--transition-normal);
 }
 .site-header.scrolled {
-  background: rgba(10, 13, 20, 0.96);
+  background: #ffffff;
   border-bottom-color: var(--border-amber);
   box-shadow: var(--shadow-md);
 }
@@ -1867,7 +1867,7 @@ p {
   width: 100%;
   aspect-ratio: 390 / 220;
   overflow: hidden;
-  background: #0f172a;
+  background: #f1f5f9;
 }
 .area-card-img-wrap img {
   width: 100%;
@@ -1896,7 +1896,7 @@ p {
 .area-card-title {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-primary);
   margin: 0;
 }
 .area-card-eta {
@@ -1911,7 +1911,7 @@ p {
 }
 .area-card-desc {
   font-size: 0.88rem;
-  color: #cbd5e1;
+  color: var(--text-secondary);
   line-height: 1.6;
   margin: 0;
 }
@@ -1921,7 +1921,7 @@ p {
   justify-content: center;
   gap: 6px;
   padding: 10px;
-  background: var(--bg-dark-800);
+  background: #f8fafc;
   border: 1px solid var(--border-amber);
   color: var(--amber-400);
   font-weight: 700;
@@ -1982,7 +1982,7 @@ p {
 .sidebar-widget-title {
   font-size: 1.1rem;
   font-weight: 800;
-  color: #fff;
+  color: var(--text-primary);
   margin-bottom: 14px;
   padding-bottom: 8px;
   border-bottom: 2px solid var(--amber-500);
@@ -2048,7 +2048,7 @@ p {
   align-items: center;
   justify-content: space-between;
   padding: 8px 12px;
-  background: rgba(255, 255, 255, 0.04);
+  background: #f8fafc;
   border-radius: var(--radius-sm);
   color: #cbd5e1;
   font-size: 0.9rem;
@@ -2085,7 +2085,7 @@ p {
 .faq-question {
   font-size: 1.15rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-primary);
   margin-bottom: 8px;
   display: flex;
   align-items: center;
@@ -2180,7 +2180,7 @@ p {
 
 /* Winch Alamir Style SEO Rich Content Box & Ticker */
 .seo-rich-box {
-  background: var(--bg-card);
+  background: #ffffff;
   border: 1px solid var(--border-card);
   border-radius: var(--radius-md);
   padding: 28px 24px;
@@ -2230,7 +2230,7 @@ p {
 
 /* Services Ticker Strip (Typewriter Style) */
 .services-ticker {
-  background: #0d121c;
+  background: #ffffff;
   border-bottom: 1px solid rgba(245, 158, 11, 0.25);
   display: flex;
   align-items: center;
@@ -2253,7 +2253,7 @@ p {
 }
 .services-ticker-content {
   padding: 8px 18px;
-  color: #f1f5f9;
+  color: var(--text-primary);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
