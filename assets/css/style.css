@@ -1620,71 +1620,7 @@ p {
   margin: 0;
 }
 
-/* --------------------------------------------------------------------------
-   16. Sticky Mobile Emergency Floating Bar
-   -------------------------------------------------------------------------- */
-.mobile-sticky-bar {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
-  background: rgba(10, 13, 20, 0.96);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-top: 1px solid var(--border-amber);
-  padding: 10px 16px;
-  padding-bottom: max(10px, env(safe-area-inset-bottom));
-  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.5);
-}
-
-.mobile-sticky-bar-inner {
-  display: grid;
-  grid-template-columns: 1.25fr 1fr;
-  gap: 12px;
-  max-width: 480px;
-  margin: 0 auto;
-}
-
-.mobile-bar-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  font-weight: 800;
-  font-size: 1.05rem;
-  padding: 14px 10px;
-  border-radius: var(--radius-md);
-  text-align: center;
-  text-decoration: none;
-  white-space: nowrap;
-}
-.mobile-bar-btn.call-btn {
-  background: linear-gradient(135deg, var(--amber-400) 0%, var(--amber-500) 100%);
-  color: #0b0f17;
-  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35);
-}
-.mobile-bar-btn.call-btn:hover {
-  background: var(--amber-400);
-}
-.mobile-bar-btn.whatsapp-btn {
-  background: #22c55e;
-  color: #ffffff;
-  box-shadow: 0 4px 16px rgba(34, 197, 94, 0.35);
-}
-.mobile-bar-btn.whatsapp-btn:hover {
-  background: #16a34a;
-}
-
-@media (max-width: 768px) {
-  .mobile-sticky-bar {
-    display: block;
-  }
-  body {
-    padding-bottom: calc(var(--mobile-bar-height) + 10px);
-  }
-}
+/* (Section 16 replaced by Section 18: Unified Floating Communication Dock) */
 
 /* --------------------------------------------------------------------------
    17. Site Footer
@@ -2379,20 +2315,59 @@ p {
 
 
 /* --------------------------------------------------------------------------
-   18. Floating Communication Widgets (WhatsApp & Call Button)
+   18. Floating Communication Widgets (WhatsApp & Call Button - Mobile & Computer)
    -------------------------------------------------------------------------- */
+
+/* Fixed Floating Call Button (Always Present on BOTH Computer & Mobile) */
+.wp-call-button {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99998;
+  width: 340px;
+  height: 56px;
+  border-radius: 28px;
+  background: #124dcc !important;
+  color: #ffffff !important;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 800;
+  text-decoration: none !important;
+  box-shadow: 0 8px 24px rgba(18, 77, 204, 0.45);
+  animation: pulseBtn 1.5s infinite;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.wp-call-button:hover {
+  background: #0d3eb0 !important;
+  color: #ffffff !important;
+  transform: translateX(-50%) scale(1.03);
+}
+
+.wp-call-button svg {
+  width: 24px;
+  height: 24px;
+  fill: #ffffff;
+  flex-shrink: 0;
+}
+
+/* Floating WhatsApp Widget (Always Present on BOTH Computer & Mobile) */
 .floating-actions-dock {
   position: fixed;
-  bottom: 25px;
+  bottom: 20px;
   right: 25px;
   z-index: 99999;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
   align-items: flex-end;
 }
 
-/* Floating WhatsApp Widget */
 .floating-whatsapp-widget {
   display: flex;
   align-items: center;
@@ -2463,130 +2438,58 @@ p {
   border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-/* Floating Call Widget on Desktop */
+/* Hide duplicate side call widget since center call button is active on desktop */
 .floating-call-widget {
-  display: flex;
-  align-items: center;
-  flex-direction: row-reverse;
-  text-decoration: none;
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: none !important;
 }
 
-.floating-call-widget:hover {
-  transform: scale(1.08);
+/* Ensure body has bottom padding on computer & mobile so content isn't blocked */
+body {
+  padding-bottom: 84px !important;
 }
 
-.floating-call-btn {
-  width: 60px;
-  height: 60px;
-  background: #124dcc;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 8px 24px rgba(18, 77, 204, 0.45);
-  position: relative;
-  flex-shrink: 0;
-  animation: pulseCallBtn 1.8s infinite;
-}
-
-.floating-call-btn svg {
-  width: 28px;
-  height: 28px;
-  fill: #ffffff;
-}
-
-.floating-call-label {
-  background: #ffffff;
-  color: #124dcc;
-  font-size: 0.92rem;
-  font-weight: 800;
-  padding: 7px 16px;
-  border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.18);
-  margin-left: 10px;
-  white-space: nowrap;
-  border: 1px solid rgba(18, 77, 204, 0.15);
-}
-
-@keyframes pulseCallBtn {
-  0% {
-    box-shadow: 0 0 0 0 rgba(18, 77, 204, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 14px rgba(18, 77, 204, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(18, 77, 204, 0);
-  }
-}
-
-/* Mobile Fixed Call Button (WP Call Button Replica) */
-.wp-call-button {
-  display: none;
-}
-
+/* Mobile Specific Refinements (<= 768px) */
 @media (max-width: 768px) {
   .wp-call-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    position: fixed;
-    bottom: 14px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 999999;
     width: calc(100% - 32px);
     max-width: 400px;
-    height: 56px;
-    border-radius: 20px;
-    background: #124dcc !important;
-    color: #ffffff !important;
-    text-align: center;
+    bottom: 14px;
+    height: 54px;
     font-size: 1.15rem;
-    font-weight: bold;
-    text-decoration: none !important;
-    box-shadow: 0 8px 24px rgba(18, 77, 204, 0.5);
-    animation: pulseBtn 1.5s infinite;
-  }
-
-  .wp-call-button svg {
-    width: 24px;
-    height: 24px;
-    fill: #ffffff;
   }
 
   .floating-actions-dock {
-    bottom: 84px;
+    bottom: 82px;
     right: 16px;
   }
 
-  .floating-call-widget {
-    display: none;
+  .floating-whatsapp-btn {
+    width: 54px;
+    height: 54px;
+  }
+
+  .floating-whatsapp-btn svg {
+    width: 30px;
+    height: 30px;
   }
 
   .mobile-sticky-bar {
     display: none !important;
-  }
-
-  body {
-    padding-bottom: 80px;
   }
 }
 
 @keyframes pulseBtn {
   0% {
     transform: translateX(-50%) scale(1);
-    box-shadow: 0 0 0 0 rgba(11, 0, 244, 0.7);
+    box-shadow: 0 0 0 0 rgba(18, 77, 204, 0.7);
   }
   70% {
-    transform: translateX(-50%) scale(1.04);
-    box-shadow: 0 0 0 15px rgba(11, 0, 244, 0);
+    transform: translateX(-50%) scale(1.03);
+    box-shadow: 0 0 0 16px rgba(18, 77, 204, 0);
   }
   100% {
     transform: translateX(-50%) scale(1);
-    box-shadow: 0 0 0 0 rgba(11, 0, 244, 0);
+    box-shadow: 0 0 0 0 rgba(18, 77, 204, 0);
   }
 }
 
@@ -2620,4 +2523,16 @@ p {
   width: 24px;
   height: 24px;
   fill: #ffffff;
+}
+
+@keyframes pulseCallBtn {
+  0% {
+    box-shadow: 0 0 0 0 rgba(18, 77, 204, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(18, 77, 204, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(18, 77, 204, 0);
+  }
 }
