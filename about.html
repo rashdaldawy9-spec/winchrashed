@@ -68,6 +68,7 @@
     ]
   }
   </script>
+  <script src="assets/js/main.js" defer></script>
 </head>
 <body class="hazard-stripe-top">
 
@@ -130,12 +131,16 @@
   </header>
 
   <!-- Live Services Ticker Strip (Winch Alamir Style - Image 1) -->
+  <!-- Live Services Ticker Strip (Typewriter Animation Effect) -->
   <div class="services-ticker">
     <div class="services-ticker-badge">
       <span>خدماتنا</span>
     </div>
     <div class="services-ticker-content">
-      <strong>أوناش راشد لإنقاذ السيارات</strong>: خبرة ميدانية وأحدث أسطول سطحات هيدروليكية كاملة النزول بدون إكرامية | اتصل الآن: <a href="tel:01273486236" class="text-amber tnum" style="font-weight: 800;">01273486236</a>
+      <span id="typewriterText">ونش انقاذ راشد: أسرع ونش إنقاذ سيارات نصلك خلال 15 دقيقة بالعاشر من رمضان وطريق السويس والإسماعيلية بخصم 20%.</span><span class="typewriter-cursor">|</span>
+    </div>
+    <div class="services-ticker-cta">
+      <a href="tel:01273486236" class="ticker-phone tnum" dir="ltr">📞 01273486236</a>
     </div>
   </div>
 
@@ -166,7 +171,7 @@
       <!-- Fleet Image Banner -->
       <div class="container" style="max-width: 960px; margin-top: 36px;">
         <div style="border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-amber); box-shadow: var(--shadow-md);">
-          <img src="assets/images/winch-rashed-banner-768x332.jpg" alt="أسطول أوناش راشد لإنقاذ السيارات - 01273486236" width="768" height="332" style="width: 100%; height: auto; display: block; object-fit: cover;">
+          <img src="assets/images/winch-rashed-poster-mechanic.jpg" alt="أسطول أوناش راشد لإنقاذ السيارات - 01273486236" width="768" height="332" style="width: 100%; height: auto; display: block; object-fit: cover;">
         </div>
       </div>
 
@@ -287,26 +292,6 @@
     </div>
   </footer>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const mobileToggle = document.getElementById('mobileToggle');
-      const mobileDrawer = document.getElementById('mobileDrawer');
-      if (mobileToggle && mobileDrawer) {
-        mobileToggle.addEventListener('click', function () {
-          const isOpen = mobileDrawer.classList.toggle('open');
-          mobileToggle.setAttribute('aria-expanded', isOpen);
-        });
-      }
-
-      const siteHeader = document.getElementById('siteHeader');
-      window.addEventListener('scroll', function () {
-        if (window.scrollY > 40) {
-          siteHeader.classList.add('scrolled');
-        } else {
-          siteHeader.classList.remove('scrolled');
-        }
-      }, { passive: true });
-    });
-  </script>
+  
 </body>
 </html>

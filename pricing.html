@@ -86,6 +86,7 @@
     ]
   }
   </script>
+  <script src="assets/js/main.js" defer></script>
 </head>
 <body>
 
@@ -151,12 +152,16 @@
   </header>
 
   <!-- Live Services Ticker Strip (Winch Alamir Style - Image 1) -->
+  <!-- Live Services Ticker Strip (Typewriter Animation Effect) -->
   <div class="services-ticker">
     <div class="services-ticker-badge">
       <span>خدماتنا</span>
     </div>
     <div class="services-ticker-content">
-      <strong>أسعار ونش انقاذ راشد</strong>: تسعير عادل بدون استغلال وبأرخص سعر للكيلومتر مع خصم 20% وبدون أي إكراميات | للاستعلام: <a href="tel:01273486236" class="text-amber tnum" style="font-weight: 800;">01273486236</a>
+      <span id="typewriterText">ونش انقاذ راشد: أسرع ونش إنقاذ سيارات نصلك خلال 15 دقيقة بالعاشر من رمضان وطريق السويس والإسماعيلية بخصم 20%.</span><span class="typewriter-cursor">|</span>
+    </div>
+    <div class="services-ticker-cta">
+      <a href="tel:01273486236" class="ticker-phone tnum" dir="ltr">📞 01273486236</a>
     </div>
   </div>
 
@@ -545,7 +550,7 @@
 
             <!-- Widget 2: Tow Truck Image Feature -->
             <div class="sidebar-widget" style="padding: 0; overflow: hidden; background: var(--bg-card); border-color: var(--border-card);">
-              <img src="assets/images/winch-rashed-post-300x250.jpg" alt="ونش راشد لإنقاذ السيارات - أسعار عادلة وخصم 20%" width="300" height="250" style="width: 100%; height: auto; display: block;">
+              <img src="assets/images/winch-rashed-sidebar-card.jpg" alt="ونش راشد لإنقاذ السيارات - أسعار عادلة وخصم 20%" width="300" height="250" style="width: 100%; height: auto; display: block;">
               <div style="padding: 16px;">
                 <h4 style="font-size: 1rem; color: #fff; margin-bottom: 6px;">خصم حقيقي يصل إلى 20%</h4>
                 <p style="font-size: 0.88rem; color: #cbd5e1; margin: 0; line-height: 1.6;">
@@ -632,26 +637,6 @@
     </div>
   </footer>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const mobileToggle = document.getElementById('mobileToggle');
-      const mobileDrawer = document.getElementById('mobileDrawer');
-      if (mobileToggle && mobileDrawer) {
-        mobileToggle.addEventListener('click', function () {
-          const isOpen = mobileDrawer.classList.toggle('open');
-          mobileToggle.setAttribute('aria-expanded', isOpen);
-        });
-      }
-
-      const siteHeader = document.getElementById('siteHeader');
-      window.addEventListener('scroll', function () {
-        if (window.scrollY > 40) {
-          siteHeader.classList.add('scrolled');
-        } else {
-          siteHeader.classList.remove('scrolled');
-        }
-      }, { passive: true });
-    });
-  </script>
+  
 </body>
 </html>

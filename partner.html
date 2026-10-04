@@ -103,6 +103,7 @@
     ]
   }
   </script>
+  <script src="assets/js/main.js" defer></script>
 </head>
 <body class="hazard-stripe-top">
 
@@ -165,12 +166,16 @@
   </header>
 
   <!-- Live Services Ticker Strip (Winch Alamir Style - Image 1) -->
+  <!-- Live Services Ticker Strip (Typewriter Animation Effect) -->
   <div class="services-ticker">
     <div class="services-ticker-badge">
       <span>خدماتنا</span>
     </div>
     <div class="services-ticker-content">
-      <strong>دليل ونش انقاذ راشد</strong>: شبكة متكاملة لإنقاذ وسحب السيارات المعطلة وسيارات الحوادث على مستوى الجمهورية 24/7 | اتصل بنا: <a href="tel:01273486236" class="text-amber tnum" style="font-weight: 800;">01273486236</a>
+      <span id="typewriterText">ونش انقاذ راشد: أسرع ونش إنقاذ سيارات نصلك خلال 15 دقيقة بالعاشر من رمضان وطريق السويس والإسماعيلية بخصم 20%.</span><span class="typewriter-cursor">|</span>
+    </div>
+    <div class="services-ticker-cta">
+      <a href="tel:01273486236" class="ticker-phone tnum" dir="ltr">📞 01273486236</a>
     </div>
   </div>
 
@@ -211,7 +216,7 @@
 
             <!-- Featured Banner Image (Winch Alamir Style) -->
             <div style="margin: 20px 0; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-amber); box-shadow: var(--shadow-md);">
-              <img src="assets/images/winch-rashed-banner-768x332.jpg" alt="ونش انقاذ راشد لإنقاذ السيارات - 01273486236" width="768" height="332" style="width: 100%; height: auto; display: block; object-fit: cover;">
+              <img src="assets/images/winch-rashed-fleet-banner.jpg" alt="ونش انقاذ راشد لإنقاذ السيارات - 01273486236" width="768" height="332" style="width: 100%; height: auto; display: block; object-fit: cover;">
             </div>
 
             <p style="font-size: 1.15rem; color: #f1f5f9; line-height: 1.8; margin-top: 16px;">
@@ -393,7 +398,7 @@
           <div class="sidebar-widget">
             <h4 class="sidebar-widget-title"><span>⚡ أسرع ونش إنقاذ</span></h4>
             <a href="tel:01273486236" class="sidebar-post-banner" title="اتصل بونش انقاذ راشد 01273486236">
-              <img src="assets/images/winch-rashed-post-300x250.jpg" alt="ونش انقاذ راشد 01273486236" width="300" height="250" loading="lazy">
+              <img src="assets/images/winch-rashed-sidebar-card.jpg" alt="ونش انقاذ راشد 01273486236" width="300" height="250" loading="lazy">
             </a>
             <a href="tel:01273486236" class="btn btn-primary btn-block tnum" style="margin-top: 12px; font-weight: 800;">
               📞 اتصل الآن: 01273486236
@@ -490,26 +495,6 @@
     </div>
   </footer>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const mobileToggle = document.getElementById('mobileToggle');
-      const mobileDrawer = document.getElementById('mobileDrawer');
-      if (mobileToggle && mobileDrawer) {
-        mobileToggle.addEventListener('click', function () {
-          const isOpen = mobileDrawer.classList.toggle('open');
-          mobileToggle.setAttribute('aria-expanded', isOpen);
-        });
-      }
-
-      const siteHeader = document.getElementById('siteHeader');
-      window.addEventListener('scroll', function () {
-        if (window.scrollY > 40) {
-          siteHeader.classList.add('scrolled');
-        } else {
-          siteHeader.classList.remove('scrolled');
-        }
-      }, { passive: true });
-    });
-  </script>
+  
 </body>
 </html>

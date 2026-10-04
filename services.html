@@ -71,6 +71,7 @@
     ]
   }
   </script>
+  <script src="assets/js/main.js" defer></script>
 </head>
 <body class="hazard-stripe-top">
 
@@ -133,12 +134,16 @@
   </header>
 
   <!-- Live Services Ticker Strip (Winch Alamir Style - Image 1) -->
+  <!-- Live Services Ticker Strip (Typewriter Animation Effect) -->
   <div class="services-ticker">
     <div class="services-ticker-badge">
       <span>خدماتنا</span>
     </div>
     <div class="services-ticker-content">
-      <strong>خدمات ونش انقاذ راشد</strong>: متوفرون 24 ساعة لسحب ونقل السيارات الملاكي والفارهة وسيارات النقل والحوادث بخصم 20% | الخط الساخن: <a href="tel:01273486236" class="text-amber tnum" style="font-weight: 800;">01273486236</a>
+      <span id="typewriterText">ونش انقاذ راشد: أسرع ونش إنقاذ سيارات نصلك خلال 15 دقيقة بالعاشر من رمضان وطريق السويس والإسماعيلية بخصم 20%.</span><span class="typewriter-cursor">|</span>
+    </div>
+    <div class="services-ticker-cta">
+      <a href="tel:01273486236" class="ticker-phone tnum" dir="ltr">📞 01273486236</a>
     </div>
   </div>
 
@@ -174,7 +179,7 @@
           <!-- Card 1: Private & Luxury Cars -->
           <div style="background: var(--bg-card); border: 1px solid var(--border-card); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; transition: transform var(--transition-fast);">
             <div style="height: 190px; overflow: hidden; background: #0f172a;">
-              <img src="assets/images/winch-rashed-flatbed-featured.jpg" alt="سحب سيارات ملاكي وفارهة - 01273486236" width="390" height="220" style="width: 100%; height: 100%; object-fit: cover;">
+              <img src="assets/images/winch-service-luxury.jpg" alt="سحب سيارات ملاكي وفارهة - 01273486236" width="390" height="220" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
             <div style="padding: 26px 22px; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
               <div>
@@ -193,7 +198,7 @@
               العاشر من رمضان والمصانع
             </div>
             <div style="height: 190px; overflow: hidden; background: #0f172a;">
-              <img src="assets/images/winch-ramadan.jpg" alt="ونش انقاذ شاحنات ونقل المصانع العاشر من رمضان - 01273486236" width="390" height="220" style="width: 100%; height: 100%; object-fit: cover;">
+              <img src="assets/images/winch-service-alltypes.jpg" alt="ونش انقاذ شاحنات ونقل المصانع العاشر من رمضان - 01273486236" width="390" height="220" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
             <div style="padding: 26px 22px; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
               <div>
@@ -209,7 +214,7 @@
           <!-- Card 3: Accident Recovery -->
           <div style="background: var(--bg-card); border: 1px solid var(--border-card); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;">
             <div style="height: 190px; overflow: hidden; background: #0f172a;">
-              <img src="assets/images/winch-suez.jpg" alt="إنقاذ حوادث طريق السويس والإسماعيلية - 01273486236" width="390" height="220" style="width: 100%; height: 100%; object-fit: cover;">
+              <img src="assets/images/winch-service-accidents.jpg" alt="إنقاذ حوادث طريق السويس والإسماعيلية - 01273486236" width="390" height="220" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
             <div style="padding: 26px 22px; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
               <div>
@@ -225,7 +230,7 @@
           <!-- Card 4: Quick Roadside Help -->
           <div style="background: var(--bg-card); border: 1px solid var(--border-card); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;">
             <div style="height: 190px; overflow: hidden; background: #0f172a;">
-              <img src="assets/images/winch-ismailia.jpg" alt="اشتراك بطارية وتغيير إطارات - 01273486236" width="390" height="220" style="width: 100%; height: 100%; object-fit: cover;">
+              <img src="assets/images/winch-service-roadside.jpg" alt="اشتراك بطارية وتغيير إطارات - 01273486236" width="390" height="220" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
             <div style="padding: 26px 22px; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
               <div>
@@ -328,6 +333,16 @@
       </div>
     </section>
 
+    <!-- Fleet Equipment Master Showcase -->
+    <section class="section-padding" style="padding: 40px 0; background: #0c1017; border-top: 1px solid var(--border-subtle);">
+      <div class="container" style="max-width: 900px; text-align: center;">
+        <span class="badge-caution" style="margin-bottom: 12px; display: inline-block;">أسطول الإنقاذ المتطور</span>
+        <h2 style="font-size: clamp(1.5rem, 2.5vw, 2rem); margin-bottom: 20px;">جاهزية كاملة لنقل جميع أنواع السيارات والمعدات</h2>
+        <div style="border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-amber); box-shadow: var(--shadow-md);">
+          <img src="assets/images/winch-rashed-poster-master.jpg" alt="أسطول ومعدات ونش راشد لإنقاذ السيارات - 01273486236" width="1024" height="682" style="width: 100%; height: auto; display: block;" loading="lazy">
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- Sticky Mobile Bar -->
@@ -374,26 +389,6 @@
     </div>
   </footer>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const mobileToggle = document.getElementById('mobileToggle');
-      const mobileDrawer = document.getElementById('mobileDrawer');
-      if (mobileToggle && mobileDrawer) {
-        mobileToggle.addEventListener('click', function () {
-          const isOpen = mobileDrawer.classList.toggle('open');
-          mobileToggle.setAttribute('aria-expanded', isOpen);
-        });
-      }
-
-      const siteHeader = document.getElementById('siteHeader');
-      window.addEventListener('scroll', function () {
-        if (window.scrollY > 40) {
-          siteHeader.classList.add('scrolled');
-        } else {
-          siteHeader.classList.remove('scrolled');
-        }
-      }, { passive: true });
-    });
-  </script>
+  
 </body>
 </html>

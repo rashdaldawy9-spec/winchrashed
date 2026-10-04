@@ -64,6 +64,7 @@
     }
   }
   </script>
+  <script src="assets/js/main.js" defer></script>
 </head>
 <body>
 
@@ -129,12 +130,16 @@
   </header>
 
   <!-- Live Services Ticker Strip (Winch Alamir Style - Image 1) -->
+  <!-- Live Services Ticker Strip (Typewriter Animation Effect) -->
   <div class="services-ticker">
     <div class="services-ticker-badge">
       <span>خدماتنا</span>
     </div>
     <div class="services-ticker-content">
-      <strong>مناطق ونش انقاذ راشد</strong>: وصول في 15 دقيقة بالعاشر من رمضان، طريق السويس، طريق الإسماعيلية، الشروق، مدينتي، وبدر بخصم 20% | اتصل بنا: <a href="tel:01273486236" class="text-amber tnum" style="font-weight: 800;">01273486236</a>
+      <span id="typewriterText">ونش انقاذ راشد: أسرع ونش إنقاذ سيارات نصلك خلال 15 دقيقة بالعاشر من رمضان وطريق السويس والإسماعيلية بخصم 20%.</span><span class="typewriter-cursor">|</span>
+    </div>
+    <div class="services-ticker-cta">
+      <a href="tel:01273486236" class="ticker-phone tnum" dir="ltr">📞 01273486236</a>
     </div>
   </div>
 
@@ -462,11 +467,19 @@
             <div class="sidebar-widget">
               <h4 class="sidebar-widget-title"><span>⚡ أسرع ونش إنقاذ</span></h4>
               <a href="tel:01273486236" class="sidebar-post-banner" title="اتصل بونش انقاذ راشد 01273486236">
-                <img src="assets/images/winch-rashed-post-300x250.jpg" alt="ونش انقاذ راشد 01273486236" width="300" height="250" loading="lazy">
+                <img src="assets/images/winch-rashed-sidebar-card.jpg" alt="ونش انقاذ راشد 01273486236" width="300" height="250" loading="lazy">
               </a>
               <a href="tel:01273486236" class="btn btn-primary btn-block tnum" style="margin-top: 12px; font-weight: 800;">
                 📞 اتصل الآن: 01273486236
               </a>
+            </div>
+
+                        <!-- Widget: 24/7 Night Fleet Convoy -->
+            <div class="sidebar-widget" style="padding: 12px; overflow: hidden;">
+              <div style="border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--border-amber); margin-bottom: 10px;">
+                <img src="assets/images/winch-rashed-convoy-night.jpg" alt="أسطول طوارئ ونش راشد ليلاً 24 ساعة - 01273486236" width="556" height="200" style="width: 100%; height: auto; display: block;" loading="lazy">
+              </div>
+              <div style="text-align: center; font-size: 0.85rem; color: #cbd5e1; font-weight: 600;">جاهزية ليلية كاملة على طريقي السويس والإسماعيلية والعاشر</div>
             </div>
 
             <!-- Widget 2: 24/7 Roadside Hotline Card -->
@@ -560,26 +573,6 @@
     </div>
   </footer>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const mobileToggle = document.getElementById('mobileToggle');
-      const mobileDrawer = document.getElementById('mobileDrawer');
-      if (mobileToggle && mobileDrawer) {
-        mobileToggle.addEventListener('click', function () {
-          const isOpen = mobileDrawer.classList.toggle('open');
-          mobileToggle.setAttribute('aria-expanded', isOpen);
-        });
-      }
-
-      const siteHeader = document.getElementById('siteHeader');
-      window.addEventListener('scroll', function () {
-        if (window.scrollY > 40) {
-          siteHeader.classList.add('scrolled');
-        } else {
-          siteHeader.classList.remove('scrolled');
-        }
-      }, { passive: true });
-    });
-  </script>
+  
 </body>
 </html>
