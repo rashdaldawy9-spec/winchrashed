@@ -619,7 +619,7 @@ p {
   line-height: 1.2;
 }
 
-/* Mobile Nav Toggle */
+/* Mobile Nav Toggle Button */
 .mobile-toggle {
   display: none;
   background: #f8fafc;
@@ -631,6 +631,10 @@ p {
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
+  position: relative;
+  z-index: 1002;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 .mobile-toggle:hover {
   background: #f1f5f9;
@@ -641,26 +645,72 @@ p {
   width: 24px;
   height: 24px;
   stroke: #0f172a;
+  display: block;
+}
+.mobile-toggle .icon-close {
+  display: none;
+}
+.mobile-toggle .icon-hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mobile-toggle.is-active {
+  background: #fee2e2;
+  border-color: #ef4444;
+  color: #b91c1c;
+}
+.mobile-toggle.is-active svg {
+  stroke: #b91c1c;
+}
+.mobile-toggle.is-active .icon-hamburger {
+  display: none;
+}
+.mobile-toggle.is-active .icon-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Mobile Nav Drawer (App-like Smooth Dropdown) */
+/* Mobile Nav Drawer (Slide Down Smooth Menu) */
 .mobile-drawer {
   display: none;
   background: #ffffff;
   border-bottom: 3px solid var(--amber-500);
   padding: 16px 20px 24px;
-  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.18);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.22);
   max-height: calc(100vh - 75px);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
+  position: relative;
+  z-index: 1001;
 }
 .mobile-drawer.open {
-  display: block;
+  display: block !important;
   animation: slideDownMenu 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 @keyframes slideDownMenu {
-  from { opacity: 0; transform: translateY(-8px); }
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Backdrop Overlay */
+.mobile-drawer-backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 999;
+}
+.mobile-drawer-backdrop.active {
+  display: block !important;
+}
   to { opacity: 1; transform: translateY(0); }
 }
 .mobile-menu-links {
@@ -3327,7 +3377,12 @@ img, video, iframe, svg {
           </a>
 
           <button class="mobile-toggle" id="mobileToggle" aria-label="فتح القائمة" aria-expanded="false">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <span class="icon-hamburger" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </span>
+            <span class="icon-close" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </span>
           </button>
         </div>
       </div>
@@ -3351,6 +3406,8 @@ img, video, iframe, svg {
       </div>
     </div>
   </header>
+  <!-- Mobile Drawer Backdrop -->
+  <div class="mobile-drawer-backdrop" id="mobileBackdrop" aria-hidden="true"></div>
 
   <!-- Live Services Ticker Strip (Winch Alamir Style - Image 1) -->
   <!-- Live Services Ticker Strip (Typewriter Animation Effect) -->
@@ -4212,114 +4269,7 @@ img, video, iframe, svg {
 
   
 
-  <!-- INLINED INTERACTIVE SCRIPT (Typewriter + Mobile Drawer + Sticky Header) -->
-  <script>
-/**
- * ونش راشد لإنقاذ السيارات (winch-rashed.com)
- * Main Interactive Script:
- * 1. Mobile Drawer Navigation with Animated Icon & Outside Click
- * 2. Sticky Header Scroll Effect
- * 3. Typewriter News Ticker Effect
- */
-
-document.addEventListener('DOMContentLoaded', function () {
-  // 1. Mobile Menu Toggle with Close (X) Icon & Outside Click
-  const mobileToggle = document.getElementById('mobileToggle');
-  const mobileDrawer = document.getElementById('mobileDrawer');
   
-  if (mobileToggle && mobileDrawer) {
-    const hamburgerSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>';
-    const closeSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>';
-
-    mobileToggle.addEventListener('click', function (e) {
-      e.stopPropagation();
-      const isOpen = mobileDrawer.classList.toggle('open');
-      mobileToggle.setAttribute('aria-expanded', isOpen);
-      mobileToggle.innerHTML = isOpen ? closeSvg : hamburgerSvg;
-    });
-
-    // Close when clicking anywhere outside the header
-    document.addEventListener('click', function (e) {
-      if (mobileDrawer.classList.contains('open') && !mobileDrawer.contains(e.target) && !mobileToggle.contains(e.target)) {
-        mobileDrawer.classList.remove('open');
-        mobileToggle.setAttribute('aria-expanded', 'false');
-        mobileToggle.innerHTML = hamburgerSvg;
-      }
-    });
-
-    // Close on Escape key
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && mobileDrawer.classList.contains('open')) {
-        mobileDrawer.classList.remove('open');
-        mobileToggle.setAttribute('aria-expanded', 'false');
-        mobileToggle.innerHTML = hamburgerSvg;
-      }
-    });
-  }
-
-  // 2. Sticky Header Elevation on Scroll
-  const siteHeader = document.getElementById('siteHeader');
-  if (siteHeader) {
-    window.addEventListener('scroll', function () {
-      if (window.scrollY > 30) {
-        siteHeader.classList.add('scrolled');
-      } else {
-        siteHeader.classList.remove('scrolled');
-      }
-    }, { passive: true });
-  }
-
-  // 3. Typewriter Effect for News & Services Strip
-  const typewriterElement = document.getElementById('typewriterText');
-  if (typewriterElement) {
-    const phrases = [
-      "ونش انقاذ راشد: أسرع ونش إنقاذ سيارات نصلك خلال 15 دقيقة بالعاشر من رمضان وطريق السويس والإسماعيلية بخصم 20%.",
-      "خدمة طوارئ 24 ساعة: سحب سيارات ملاكي، فارهة، سيارات حوادث، وشاحنات المصانع بأحدث أسطول هيدروليكي.",
-      "تسعير عادل وشفاف 100%: ممنوع دفع أي إكرامية أو رسوم خفية نهائياً | الخط الساخن: 01273486236",
-      "تغطية جغرافية شاملة: العاشر من رمضان، طريق السويس، طريق الإسماعيلية، الشروق، مدينتي، بدر، العبور، والعاصمة.",
-      "أمان تام لسيارتك: سطحات هيدروليكية كاملة النزول على الأرض (Zero Angle) لحماية الشاسيه والجنوط."
-    ];
-
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    const typeSpeed = 35;
-    const deleteSpeed = 18;
-    const endPause = 2200;
-    const startPause = 350;
-
-    function tick() {
-      const current = phrases[phraseIndex];
-
-      if (!isDeleting) {
-        typewriterElement.textContent = current.substring(0, charIndex + 1);
-        charIndex++;
-
-        if (charIndex === current.length) {
-          isDeleting = true;
-          setTimeout(tick, endPause);
-          return;
-        }
-        setTimeout(tick, typeSpeed);
-      } else {
-        typewriterElement.textContent = current.substring(0, charIndex - 1);
-        charIndex--;
-
-        if (charIndex === 0) {
-          isDeleting = false;
-          phraseIndex = (phraseIndex + 1) % phrases.length;
-          setTimeout(tick, startPause);
-          return;
-        }
-        setTimeout(tick, deleteSpeed);
-      }
-    }
-
-    tick();
-  }
-});
-
-  </script>
 
 </body>
 </html>

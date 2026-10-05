@@ -579,7 +579,7 @@ p {
   line-height: 1.2;
 }
 
-/* Mobile Nav Toggle */
+/* Mobile Nav Toggle Button */
 .mobile-toggle {
   display: none;
   background: #f8fafc;
@@ -591,6 +591,10 @@ p {
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
+  position: relative;
+  z-index: 1002;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 .mobile-toggle:hover {
   background: #f1f5f9;
@@ -601,26 +605,72 @@ p {
   width: 24px;
   height: 24px;
   stroke: #0f172a;
+  display: block;
+}
+.mobile-toggle .icon-close {
+  display: none;
+}
+.mobile-toggle .icon-hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mobile-toggle.is-active {
+  background: #fee2e2;
+  border-color: #ef4444;
+  color: #b91c1c;
+}
+.mobile-toggle.is-active svg {
+  stroke: #b91c1c;
+}
+.mobile-toggle.is-active .icon-hamburger {
+  display: none;
+}
+.mobile-toggle.is-active .icon-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Mobile Nav Drawer (App-like Smooth Dropdown) */
+/* Mobile Nav Drawer (Slide Down Smooth Menu) */
 .mobile-drawer {
   display: none;
   background: #ffffff;
   border-bottom: 3px solid var(--amber-500);
   padding: 16px 20px 24px;
-  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.18);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.22);
   max-height: calc(100vh - 75px);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
+  position: relative;
+  z-index: 1001;
 }
 .mobile-drawer.open {
-  display: block;
+  display: block !important;
   animation: slideDownMenu 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 @keyframes slideDownMenu {
-  from { opacity: 0; transform: translateY(-8px); }
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Backdrop Overlay */
+.mobile-drawer-backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 999;
+}
+.mobile-drawer-backdrop.active {
+  display: block !important;
+}
   to { opacity: 1; transform: translateY(0); }
 }
 .mobile-menu-links {
