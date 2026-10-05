@@ -134,6 +134,35 @@
       tick();
     }
 
+    // 5. Cookie Consent Banner & Consent Mode v2 Manager
+    const consentBanner = document.getElementById('cookieConsentBanner');
+    const acceptConsentBtn = document.getElementById('acceptConsentBtn');
+    if (consentBanner && acceptConsentBtn) {
+      try {
+        const consentGiven = localStorage.getItem('cookie_consent');
+        if (!consentGiven) {
+          setTimeout(function () {
+            consentBanner.style.display = 'block';
+          }, 1200);
+        }
+      } catch (err) {}
+
+      acceptConsentBtn.addEventListener('click', function () {
+        try {
+          localStorage.setItem('cookie_consent', 'granted');
+        } catch (err) {}
+        consentBanner.style.display = 'none';
+        if (typeof window.gtag === 'function') {
+          window.gtag('consent', 'update', {
+            'ad_storage': 'granted',
+            'ad_user_data': 'granted',
+            'ad_personalization': 'granted',
+            'analytics_storage': 'granted'
+          });
+        }
+      });
+    }
+
     // 4. Google Ads Conversion Tracking for Calls & WhatsApp
     document.addEventListener('click', function (e) {
       const link = e.target.closest('a');
