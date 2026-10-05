@@ -168,15 +168,7 @@
       const link = e.target.closest('a');
       if (!link) return;
       const href = link.getAttribute('href') || '';
-      if (href.startsWith('tel:')) {
-        if (typeof window.gtag === 'function') {
-          window.gtag('event', 'conversion', {
-            'send_to': 'AW-18495850150',
-            'event_category': 'Phone Call',
-            'event_label': href
-          });
-        }
-      } else if (href.includes('wa.me') || href.includes('whatsapp.com')) {
+      if (href.includes('wa.me') || href.includes('whatsapp.com')) {
         if (typeof window.gtag === 'function') {
           window.gtag('event', 'conversion', {
             'send_to': 'AW-18495850150',
