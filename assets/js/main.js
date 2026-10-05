@@ -15,6 +15,13 @@ document.addEventListener('DOMContentLoaded', function () {
       const isOpen = mobileDrawer.classList.toggle('open');
       mobileToggle.setAttribute('aria-expanded', isOpen);
     });
+
+    mobileDrawer.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileDrawer.classList.remove('open');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
   }
 
   // 2. Sticky Header Elevation on Scroll

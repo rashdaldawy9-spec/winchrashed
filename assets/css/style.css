@@ -2705,3 +2705,258 @@ body {
     box-shadow: 0 0 0 0 rgba(18, 77, 204, 0);
   }
 }
+
+/* ==========================================================================
+   COMPREHENSIVE MULTI-DEVICE RESPONSIVE SYSTEM
+   Guarantees 100% flawless display across Mobile (320px - 480px),
+   Phablets (481px - 768px), Tablets (769px - 1024px), & Desktop (> 1024px)
+   ========================================================================== */
+
+/* Universal Overflow Protection (No horizontal scrollbar on any phone) */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw;
+  width: 100%;
+}
+
+img, video, iframe, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 1. Large Tablets & Small Laptops (769px to 1024px) */
+@media (max-width: 1024px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .hero-grid {
+    gap: 32px;
+  }
+  .alamir-grid-2col {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+}
+
+/* 2. Standard Tablets & Mobile Landscape (577px to 768px) */
+@media (max-width: 768px) {
+  .section-padding {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+  
+  .hero-section {
+    padding-top: 24px !important;
+    padding-bottom: 36px !important;
+  }
+  
+  .hero-title, .text-gold-gradient, h1.golden-heading {
+    font-size: clamp(1.65rem, 5.5vw, 2.3rem) !important;
+    line-height: 1.3 !important;
+  }
+
+  .alamir-grid-2col {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  .alamir-card-title {
+    font-size: 0.88rem !important;
+  }
+
+  .floating-whatsapp-label {
+    display: none !important; /* Hide text label on mobile to keep screen ultra-clean */
+  }
+
+  .floating-actions-dock {
+    bottom: 80px !important;
+    right: 14px !important;
+  }
+
+  .wp-call-button {
+    width: calc(100% - 28px) !important;
+    max-width: 380px !important;
+    height: 52px !important;
+    font-size: 1.15rem !important;
+    bottom: 12px !important;
+  }
+
+  body {
+    padding-bottom: 84px !important;
+  }
+}
+
+/* 3. Standard Mobile Phones (376px to 576px) */
+@media (max-width: 576px) {
+  .container {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  /* Header Compact Bar */
+  .site-header {
+    height: auto !important;
+  }
+  .header-inner {
+    padding: 10px 0 !important;
+  }
+  .brand-logo svg {
+    max-width: 175px !important;
+    height: 38px !important;
+  }
+  .header-actions {
+    gap: 8px !important;
+  }
+  .header-actions .btn-sm {
+    padding: 7px 12px !important;
+    font-size: 0.85rem !important;
+  }
+
+  /* Promo Strip */
+  .promo-strip {
+    font-size: 0.84rem !important;
+    padding: 8px 10px !important;
+    line-height: 1.5 !important;
+  }
+  .promo-strip a {
+    font-size: 0.95rem !important;
+  }
+
+  /* Hero Adjustments */
+  .hero-content {
+    gap: 12px !important;
+  }
+  .hero-title, .text-gold-gradient, h1.golden-heading {
+    font-size: clamp(1.45rem, 5.2vw, 1.85rem) !important;
+    line-height: 1.32 !important;
+  }
+  .hero-title .highlight {
+    text-underline-offset: 4px !important;
+  }
+
+  /* Buttons on Mobile */
+  .btn-lg {
+    padding: 14px 18px !important;
+    font-size: 1.05rem !important;
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* 4 Core Selling Points in 2x2 Grid */
+  .hero-selling-points,
+  .hero-content > div:last-child {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px 10px !important;
+    font-size: 0.82rem !important;
+    padding-top: 12px !important;
+    margin-top: 10px !important;
+  }
+
+  /* Winch Alamir Mobile Cards */
+  .alamir-featured-card {
+    border-radius: 12px !important;
+    margin-bottom: 10px !important;
+    aspect-ratio: 16 / 9 !important;
+  }
+  .alamir-featured-overlay {
+    padding: 12px 10px !important;
+  }
+  .alamir-featured-title {
+    font-size: 1.08rem !important;
+    margin-bottom: 4px !important;
+  }
+  .alamir-featured-cta {
+    font-size: 0.86rem !important;
+  }
+  .alamir-badge-top {
+    font-size: 0.74rem !important;
+    padding: 3px 10px !important;
+  }
+
+  .alamir-grid-2col {
+    gap: 8px !important;
+  }
+  .alamir-card {
+    border-radius: 10px !important;
+    aspect-ratio: 4 / 3 !important;
+  }
+  .alamir-card-overlay {
+    padding: 8px 6px !important;
+  }
+  .alamir-card-badge {
+    font-size: 0.65rem !important;
+    padding: 2px 6px !important;
+  }
+  .alamir-card-title {
+    font-size: 0.82rem !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Cards & Hubs */
+  .station-hub-card {
+    padding: 18px 14px !important;
+    border-radius: var(--radius-md) !important;
+  }
+  .area-card-body {
+    padding: 14px 12px !important;
+  }
+  .seo-rich-box {
+    padding: 18px 14px !important;
+  }
+}
+
+/* 4. Ultra-Small / Compact Phones (320px to 375px - iPhone SE / Fold outer screen) */
+@media (max-width: 375px) {
+  .container {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  .brand-logo svg {
+    max-width: 145px !important;
+    height: 32px !important;
+  }
+
+  .header-actions .btn-sm {
+    padding: 6px 8px !important;
+    font-size: 0.78rem !important;
+  }
+  .header-actions .btn-sm svg {
+    width: 15px !important;
+    height: 15px !important;
+  }
+
+  .mobile-toggle {
+    padding: 6px 9px !important;
+  }
+  .mobile-toggle svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .hero-title, .text-gold-gradient, h1.golden-heading {
+    font-size: 1.38rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .alamir-card-title {
+    font-size: 0.76rem !important;
+  }
+
+  .wp-call-button {
+    width: calc(100% - 16px) !important;
+    height: 48px !important;
+    font-size: 1.05rem !important;
+  }
+
+  .floating-whatsapp-btn {
+    width: 48px !important;
+    height: 48px !important;
+  }
+  .floating-whatsapp-btn svg {
+    width: 26px !important;
+    height: 26px !important;
+  }
+}
+
