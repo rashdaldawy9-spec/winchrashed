@@ -426,7 +426,8 @@ p {
   width: auto;
 }
 
-.nav-desktop {
+.nav-desktop,
+.nav-links {
   display: flex;
   align-items: center;
   gap: 32px;
@@ -440,7 +441,7 @@ p {
   transition: color var(--transition-fast);
 }
 .nav-link:hover, .nav-link.active {
-  color: var(--amber-400);
+  color: var(--amber-600);
 }
 .nav-link.active::after {
   content: "";
@@ -502,49 +503,80 @@ p {
   stroke: #0f172a;
 }
 
-/* Mobile Nav Drawer */
+/* Mobile Nav Drawer (App-like Smooth Dropdown) */
 .mobile-drawer {
   display: none;
   background: #ffffff;
   border-bottom: 3px solid var(--amber-500);
-  padding: 20px 24px;
-  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.15);
+  padding: 16px 20px 24px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.18);
+  max-height: calc(100vh - 75px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 .mobile-drawer.open {
   display: block;
+  animation: slideDownMenu 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes slideDownMenu {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 .mobile-menu-links {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-bottom: 20px;
+  gap: 6px;
+  margin-bottom: 16px;
 }
 .mobile-menu-links .nav-link {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: #0f172a;
-  padding: 10px 0;
+  padding: 12px 16px;
+  min-height: 48px;
+  border-radius: 8px;
   border-bottom: 1px solid #f1f5f9;
+  border-right: 4px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+.mobile-menu-links .nav-link::after {
+  content: "‹";
+  font-size: 1.3rem;
+  color: #94a3b8;
+  font-weight: 400;
 }
 .mobile-menu-links .nav-link:hover,
 .mobile-menu-links .nav-link.active {
+  background: #fffbeb;
+  color: var(--amber-600);
+  border-color: #fde68a;
+  border-right-color: var(--amber-500);
+}
+.mobile-menu-links .nav-link.active::after {
   color: var(--amber-600);
 }
 .mobile-drawer-cta {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
+  padding-top: 8px;
 }
 
 @media (max-width: 991px) {
-  .nav-desktop {
-    display: none;
+  .nav-desktop,
+  .nav-links {
+    display: none !important;
   }
   .mobile-toggle {
-    display: flex;
+    display: flex !important;
   }
   .header-phone-box {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -2903,6 +2935,27 @@ img, video, iframe, svg {
   }
   .seo-rich-box {
     padding: 18px 14px !important;
+  }
+}
+
+/* 3.5. Intermediate Mobile Phones (376px to 450px) */
+@media (max-width: 450px) {
+  .brand-logo svg {
+    max-width: 150px !important;
+    height: 33px !important;
+  }
+  .header-actions {
+    gap: 6px !important;
+  }
+  .header-actions .btn-sm {
+    padding: 6px 10px !important;
+    font-size: 0.8rem !important;
+  }
+  .mobile-toggle {
+    padding: 6px 10px !important;
+  }
+  .floating-whatsapp-label {
+    display: none !important;
   }
 }
 

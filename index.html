@@ -466,7 +466,8 @@ p {
   width: auto;
 }
 
-.nav-desktop {
+.nav-desktop,
+.nav-links {
   display: flex;
   align-items: center;
   gap: 32px;
@@ -480,7 +481,7 @@ p {
   transition: color var(--transition-fast);
 }
 .nav-link:hover, .nav-link.active {
-  color: var(--amber-400);
+  color: var(--amber-600);
 }
 .nav-link.active::after {
   content: "";
@@ -542,49 +543,80 @@ p {
   stroke: #0f172a;
 }
 
-/* Mobile Nav Drawer */
+/* Mobile Nav Drawer (App-like Smooth Dropdown) */
 .mobile-drawer {
   display: none;
   background: #ffffff;
   border-bottom: 3px solid var(--amber-500);
-  padding: 20px 24px;
-  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.15);
+  padding: 16px 20px 24px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.18);
+  max-height: calc(100vh - 75px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 .mobile-drawer.open {
   display: block;
+  animation: slideDownMenu 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes slideDownMenu {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 .mobile-menu-links {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-bottom: 20px;
+  gap: 6px;
+  margin-bottom: 16px;
 }
 .mobile-menu-links .nav-link {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: #0f172a;
-  padding: 10px 0;
+  padding: 12px 16px;
+  min-height: 48px;
+  border-radius: 8px;
   border-bottom: 1px solid #f1f5f9;
+  border-right: 4px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+.mobile-menu-links .nav-link::after {
+  content: "‹";
+  font-size: 1.3rem;
+  color: #94a3b8;
+  font-weight: 400;
 }
 .mobile-menu-links .nav-link:hover,
 .mobile-menu-links .nav-link.active {
+  background: #fffbeb;
+  color: var(--amber-600);
+  border-color: #fde68a;
+  border-right-color: var(--amber-500);
+}
+.mobile-menu-links .nav-link.active::after {
   color: var(--amber-600);
 }
 .mobile-drawer-cta {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
+  padding-top: 8px;
 }
 
 @media (max-width: 991px) {
-  .nav-desktop {
-    display: none;
+  .nav-desktop,
+  .nav-links {
+    display: none !important;
   }
   .mobile-toggle {
-    display: flex;
+    display: flex !important;
   }
   .header-phone-box {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -2946,6 +2978,27 @@ img, video, iframe, svg {
   }
 }
 
+/* 3.5. Intermediate Mobile Phones (376px to 450px) */
+@media (max-width: 450px) {
+  .brand-logo svg {
+    max-width: 150px !important;
+    height: 33px !important;
+  }
+  .header-actions {
+    gap: 6px !important;
+  }
+  .header-actions .btn-sm {
+    padding: 6px 10px !important;
+    font-size: 0.8rem !important;
+  }
+  .mobile-toggle {
+    padding: 6px 10px !important;
+  }
+  .floating-whatsapp-label {
+    display: none !important;
+  }
+}
+
 /* 4. Ultra-Small / Compact Phones (320px to 375px - iPhone SE / Fold outer screen) */
 @media (max-width: 375px) {
   .container {
@@ -4129,26 +4182,43 @@ img, video, iframe, svg {
 /**
  * ونش راشد لإنقاذ السيارات (winch-rashed.com)
  * Main Interactive Script:
- * 1. Typewriter News Ticker Effect
- * 2. Mobile Drawer Navigation
- * 3. Sticky Header Scroll Effect
+ * 1. Mobile Drawer Navigation with Animated Icon & Outside Click
+ * 2. Sticky Header Scroll Effect
+ * 3. Typewriter News Ticker Effect
  */
 
 document.addEventListener('DOMContentLoaded', function () {
-  // 1. Mobile Menu Toggle
+  // 1. Mobile Menu Toggle with Close (X) Icon & Outside Click
   const mobileToggle = document.getElementById('mobileToggle');
   const mobileDrawer = document.getElementById('mobileDrawer');
+  
   if (mobileToggle && mobileDrawer) {
-    mobileToggle.addEventListener('click', function () {
+    const hamburgerSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>';
+    const closeSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>';
+
+    mobileToggle.addEventListener('click', function (e) {
+      e.stopPropagation();
       const isOpen = mobileDrawer.classList.toggle('open');
       mobileToggle.setAttribute('aria-expanded', isOpen);
+      mobileToggle.innerHTML = isOpen ? closeSvg : hamburgerSvg;
     });
 
-    mobileDrawer.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
+    // Close when clicking anywhere outside the header
+    document.addEventListener('click', function (e) {
+      if (mobileDrawer.classList.contains('open') && !mobileDrawer.contains(e.target) && !mobileToggle.contains(e.target)) {
         mobileDrawer.classList.remove('open');
         mobileToggle.setAttribute('aria-expanded', 'false');
-      });
+        mobileToggle.innerHTML = hamburgerSvg;
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && mobileDrawer.classList.contains('open')) {
+        mobileDrawer.classList.remove('open');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        mobileToggle.innerHTML = hamburgerSvg;
+      }
     });
   }
 
@@ -4156,7 +4226,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const siteHeader = document.getElementById('siteHeader');
   if (siteHeader) {
     window.addEventListener('scroll', function () {
-      if (window.scrollY > 40) {
+      if (window.scrollY > 30) {
         siteHeader.classList.add('scrolled');
       } else {
         siteHeader.classList.remove('scrolled');
@@ -4178,8 +4248,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let phraseIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
-    const typeSpeed = 40;
-    const deleteSpeed = 20;
+    const typeSpeed = 35;
+    const deleteSpeed = 18;
     const endPause = 2200;
     const startPause = 350;
 

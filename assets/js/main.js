@@ -1,26 +1,43 @@
 /**
  * ونش راشد لإنقاذ السيارات (winch-rashed.com)
  * Main Interactive Script:
- * 1. Typewriter News Ticker Effect
- * 2. Mobile Drawer Navigation
- * 3. Sticky Header Scroll Effect
+ * 1. Mobile Drawer Navigation with Animated Icon & Outside Click
+ * 2. Sticky Header Scroll Effect
+ * 3. Typewriter News Ticker Effect
  */
 
 document.addEventListener('DOMContentLoaded', function () {
-  // 1. Mobile Menu Toggle
+  // 1. Mobile Menu Toggle with Close (X) Icon & Outside Click
   const mobileToggle = document.getElementById('mobileToggle');
   const mobileDrawer = document.getElementById('mobileDrawer');
+  
   if (mobileToggle && mobileDrawer) {
-    mobileToggle.addEventListener('click', function () {
+    const hamburgerSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>';
+    const closeSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>';
+
+    mobileToggle.addEventListener('click', function (e) {
+      e.stopPropagation();
       const isOpen = mobileDrawer.classList.toggle('open');
       mobileToggle.setAttribute('aria-expanded', isOpen);
+      mobileToggle.innerHTML = isOpen ? closeSvg : hamburgerSvg;
     });
 
-    mobileDrawer.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
+    // Close when clicking anywhere outside the header
+    document.addEventListener('click', function (e) {
+      if (mobileDrawer.classList.contains('open') && !mobileDrawer.contains(e.target) && !mobileToggle.contains(e.target)) {
         mobileDrawer.classList.remove('open');
         mobileToggle.setAttribute('aria-expanded', 'false');
-      });
+        mobileToggle.innerHTML = hamburgerSvg;
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && mobileDrawer.classList.contains('open')) {
+        mobileDrawer.classList.remove('open');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        mobileToggle.innerHTML = hamburgerSvg;
+      }
     });
   }
 
@@ -28,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const siteHeader = document.getElementById('siteHeader');
   if (siteHeader) {
     window.addEventListener('scroll', function () {
-      if (window.scrollY > 40) {
+      if (window.scrollY > 30) {
         siteHeader.classList.add('scrolled');
       } else {
         siteHeader.classList.remove('scrolled');
@@ -50,8 +67,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let phraseIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
-    const typeSpeed = 40;
-    const deleteSpeed = 20;
+    const typeSpeed = 35;
+    const deleteSpeed = 18;
     const endPause = 2200;
     const startPause = 350;
 
